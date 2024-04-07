@@ -279,3 +279,169 @@
 //     return `Product ${productName} not found!`
 // }
 //   console.log(calculateTotalPrice("Scanner"));
+
+
+
+// const atTheOldToad = {
+//     potions: [],
+//     getPotions() {
+//         return "List of all available potions";
+//     },
+//     addPotion(potionName) {
+//         return `Adding ${potionName}`;
+//     },
+//   };
+
+
+
+// // ✅ Логічно й синтаксично згруповані сутності
+// const bookShelf = {
+//     books: ["The Last Kingdom", "Dream Guardian"],
+//     // Це метод об'єкта
+//     getBooks() {
+//       return "Returning all books";
+//     },
+//     // Це метод об'єкта
+//     addBook(bookName) {
+//           return `Adding book ${bookName}`;
+//     },
+//   };
+  
+//   // Виклики методів
+//   console.log(bookShelf.getBooks()); // поверне "Returning all books"
+//   console.log(bookShelf.addBook("New book 1")); // поверне "Adding book New book 1"
+//   console.log(bookShelf.addBook("New book 2")); // поверне "Adding book New book 2"
+
+
+
+// const atTheOldToad = {
+//     potions: [
+//       { name: "Speed potion", price: 460 },
+//       { name: "Stone skin", price: 520 },
+//     ],
+//     getPotions() {
+//       return this.potions;
+//     },
+//     addPotion(newPotion) {
+//       this.potions.push(newPotion);
+//     },
+//     getTotalPrice() {
+//       let totalPrice = 0;
+//       for (let potion of this.potions) {
+//         totalPrice += potion.price;
+//       }
+//       return totalPrice;
+//     },
+//   };
+// console.log(atTheOldToad.getTotalPrice());
+
+
+
+// const atTheOldToad = {
+//     potions: [
+//       { name: "Speed potion", price: 460 },
+//       { name: "Stone skin", price: 520 },
+//     ],
+//     getPotions() {
+//       return this.potions;
+//     },
+//     updatePotionName(oldName, newName) {
+//       for (let potion of this.potions) {
+//         if (potion.name === oldName) {
+//           potion.name = newName;
+//         }
+//       }
+//         return this.potions
+//     },
+//   };
+//   console.log(atTheOldToad.updatePotionName("Stone skin", "Invisibility"));
+
+
+
+// function add(...args) {
+//     let sum = 0;
+//     for (let i = 0; i < args.length; i++) {
+//         sum += args[i];
+//     }
+//     return sum;
+//   }
+//   console.log(add(32, 6, 13, 19, 8));
+
+
+
+// function addOverNum(value, ...args) {
+//     let total = 0;
+//     for (let arr of args) {
+//       if (value < arr) {
+//         total += arr;
+//       }
+//     }
+//     return total;
+//   }
+//   console.log(addOverNum(20, 74, 11, 62, 46, 12, 36));
+
+
+
+// function getExtremeScores(scores) {
+//     const maxMin = {
+//     best: Math.max(...scores),
+//     worst: Math.min(...scores),
+//     }
+//     return maxMin;
+//    }
+//    console.log(getExtremeScores([19, 7, 4, 17, 81, 24]));
+
+
+
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+
+// const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
+// console.log(allScores);
+// console.log(bestScore);
+// console.log(worstScore);
+
+
+
+// const first = { propA: 5, propB: 10, propC: 50 };
+// const second = { propC: 15, propD: 20 };
+
+// const third = { ...first, ...second };
+// console.log(third); // { propA: 5, propB: 10, propC: 15, propD: 20 }
+
+// const fourth = { ...second, ...first };
+// console.log(fourth); // { propA: 5, propB: 10, propC: 50, propD: 20 }
+
+
+// const first = { propA: 5, propB: 10, propC: 50 };
+// const second = { propC: 15 };
+
+// const third = { propB: 20, ...first, ...second };
+// console.log(third); // { propA: 5, propB: 10, propC: 15 }
+
+// const fourth = { ...first, ...second, propB: 20 };
+// console.log(fourth); // { propA: 5, propB: 20, propC: 15 }
+
+// const fifth = { ...first, propB: 20, ...second };
+// console.log(fifth); // { propA: 5, propB: 20, propC: 15 }
+
+
+
+const defaultSettings = {
+    theme: "light",
+    public: true,
+    withPassword: false,
+    minNumberOfQuestions: 10,
+    timePerQuestion: 60,
+  };
+  const overrideSettings = {
+    public: false,
+    withPassword: true,
+    timePerQuestion: 30,
+  };
+  
+  const finalSettings = {...defaultSettings, ...overrideSettings};
+console.table(finalSettings);  
