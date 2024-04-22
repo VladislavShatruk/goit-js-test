@@ -97,4 +97,162 @@
 //   });
   
 //   console.log(mango); 
-//   // { name: "Mango", email: "mango@mail.com" }  
+//   // { name: "Mango", email: "mango@mail.com" }
+
+
+
+// class User {
+//     name;
+//     #email;
+  
+//     constructor(params) {
+//       this.name = params.name;
+//       this.#email = params.email;
+//     }
+  
+//     // Публічний метод для отримання електронної пошти
+//     getEmail() {
+//       return this.#email;
+//     }
+  
+//     // Публічний метод для зміни електронної пошти
+//     changeEmail(newEmail) {
+//       if (this.#validateEmail(newEmail)) {
+//         this.#email = newEmail;
+//       } else {
+//         console.log('Invalid email format');
+//       }
+//     }
+  
+//     // Приватний метод для валідації електронної пошти
+//     #validateEmail(email) {
+//       return email.includes('@');
+//     }
+//   }
+  
+//   const mango = new User({
+//     name: 'Mango',
+//     email: 'mango@mail.com',
+//   });
+  
+//   // Спробуємо змінити електронну пошту
+//   mango.changeEmail('newmail.com'); // "Invalid email format"
+//   mango.changeEmail('new@mail.com');
+//   console.log(mango.getEmail()); // "new@mail.com"
+  
+//   // Прямий виклик приватного методу ззовні призведе до помилки
+// //   mango.#validateEmail('test'); // Помилка
+  
+  
+
+// class User {
+//     static roles = {
+//       admin: "admin",
+//       editor: "editor",
+//       basic: "basic"
+//     };
+  
+//     #email;
+//     #role;
+    
+//     constructor(params) { 
+//       this.#email = params.email; 
+//       this.#role = params.role || User.roles.basic; 
+//     }
+  
+//     get role() {
+//       return this.#role;
+//     }
+  
+//     set role(newRole) {
+//       this.#role = newRole;
+//     }
+//   }
+  
+//   const mango = new User({
+//     email: "mango@mail.com",
+//     role: User.roles.admin,
+//   });
+  
+//   console.log(mango.role); // "admin"
+//   mango.role = User.roles.editor;
+//   console.log(mango.role); // "editor"
+  
+
+
+// class Car {
+  
+//     static maxPrice = 50000;
+//     #price;
+  
+//     constructor(params) {
+//       this.#price = params.price;
+//     }
+  
+//     get price() {
+//       return this.#price;
+//     }
+  
+//     set price(newPrice) {
+//       if (newPrice <= Car.maxPrice) {
+//         this.#price = newPrice;
+//       }
+//     }
+//   }
+  
+//   const audi = new Car({ price: 35000 });
+//   console.log(audi.price); // 35000
+  
+//   audi.price = 49000;
+//   console.log(audi.price); // 49000
+  
+//   audi.price = 51000;
+//   console.log(audi.price); // 49000
+
+
+
+// class User {
+//     static #takenEmails = [];
+  
+//     static isEmailTaken(email) {
+//       return User.#takenEmails.includes(email);
+//     }
+  
+//     #email;
+  
+//     constructor(params) {
+//       this.#email = params.email;
+//       User.#takenEmails.push(params.email);
+//     }
+//   }
+  
+//   const mango = new User({ email: "mango@mail.com" });
+  
+//   console.log(User.isEmailTaken("poly@mail.com")); // false
+//   console.log(User.isEmailTaken("mango@mail.com")); // true
+
+
+
+class User {
+  
+    constructor(email) {
+      this.email = email;
+    }
+  
+    get email() {
+      return this.email;
+    }
+  
+    set email(newEmail) {
+      this.email = newEmail;
+    }
+}
+
+class Admin extends User {
+    static role(){
+      this.BASIC = "basic";
+      this.SUPERUSER = "superuser";
+    }
+}
+
+console.log(Admin);
