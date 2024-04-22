@@ -232,27 +232,253 @@
 //   console.log(User.isEmailTaken("mango@mail.com")); // true
 
 
+// const pizzaPalace = {
+//   pizzas: ["Supercheese", "Smoked", "Four meats"],
+//   checkPizza(pizzaName) {
+//     return this.includes(pizzaName);
+//   },
+//   order(pizzaName) {
 
-class User {
-  
-    constructor(email) {
-      this.email = email;
-    }
-  
-    get email() {
-      return this.email;
-    }
-  
-    set email(newEmail) {
-      this.email = newEmail;
-    }
-}
+//     if (this.checkPizza) {
+//       return `Sorry, there is no pizza named «${pizzaName}»`;
+//     }
+    
+//     return `Order accepted, preparing «${pizzaName}» pizza`;
+//   },
+// };
 
-class Admin extends User {
-    static role(){
-      this.BASIC = "basic";
-      this.SUPERUSER = "superuser";
-    }
-}
+// console.log(pizzaPalace.order("Viennese"));
 
-console.log(Admin);
+// console.log(pizzaPalace.order("Four meats"));
+
+// console.log(pizzaPalace.order("Smoked"));
+
+
+
+// const pizzaPalace = {
+//   pizzas: ["Supercheese", "Smoked", "Four meats"],
+
+//   checkPizza(pizzaName) {
+//     return this.pizzas.includes(pizzaName);
+//   },
+
+//   order(pizzaName) {
+//     const isPizzaAvailable = this.checkPizza(pizzaName);
+
+//     if (!isPizzaAvailable) {
+//       return `Sorry, there is no pizza named «${pizzaName}»`;
+//     }
+
+//     return `Order accepted, preparing «${pizzaName}» pizza`;
+//   },
+// };
+
+
+// console.log(pizzaPalace.checkPizza("Viennese"));
+
+// console.log(pizzaPalace.order("Smoked"));
+
+
+
+// function greet(str) {
+//   console.log(`${str}, ${this.username}, your room is ${this.room}!`);
+// }
+
+// const mango = {
+//   username: "Mango",
+// 	room: 27
+// };
+
+// const poly = {
+//   username: "Poly",
+// 	room: 191
+// };
+
+// greet.call(mango, "Welcome"); // "Welcome, Mango, your room is 27!"
+// greet.call(poly, "Aloha"); // "Aloha, Poly, your room is 191!"
+
+
+
+// function greet(str) {
+//   console.log(`${str}, ${this.username}, your room is ${this.room}!`);
+// }
+
+// const mango = {
+//   username: "Mango",
+// 	room: 27
+// };
+
+// const poly = {
+//   username: "Poly",
+// 	room: 191
+// };
+
+// greet.apply(mango, ["Welcome"]); // "Welcome, Mango, your room is 27!"
+// greet.apply(poly, ["Aloha"]); // "Aloha, Poly, your room is 191!"
+
+
+
+// "use strict";
+
+// const customer = {
+//   username: "Jacob",
+// 	sayHello() {
+// 		console.log(`Hello, ${this.username}!`);
+//   }
+// };
+
+// customer.sayHello(); // "Hello, Jacob!"
+
+// const greet = customer.sayHello.bind(customer);
+
+// greet(); // "Hello, Jacob!"
+
+
+
+// class User {
+  
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   static role = {           //статичний об'єкт
+//     BASIC:"basic",
+//     SUPERUSER: "superuser"
+//   }
+// }
+
+// console.log(Admin.role.BASIC);
+
+
+
+// class User {
+//   #email;
+
+//   constructor(email) {
+//     this.#email = email;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// class ContentEditor extends User {
+//   constructor(params) {
+//     // Виклик конструктора батьківського класу User
+//     super(params.email); 
+//     this.posts = params.posts;
+// console.log(params.email);
+
+//   }
+// }
+
+// const editor = new ContentEditor({ 
+// 	email: "mango@mail.com", 
+// 	posts: [] 
+// });
+// console.log(editor); // { #email: "mango@mail.com", posts: [] }
+// console.log(editor.email); // "mango@mail.com"
+
+
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   constructor(params) {
+//     super(params.email)
+//     this.access = params.access;
+//   }
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+//   constructor(params) {
+//     super(params.email);
+//     this.access = params.access;
+//   };
+
+//   blacklistedEmails = [];
+
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email)
+//   }
+
+//   isBlacklisted(email) {
+//    return this.blacklistedEmails.includes(email)
+//   }
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+// mango.blacklist("poly@mail.com");
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
