@@ -124,7 +124,7 @@ select {
   /* Подія focus і blur */
 
 
-  body {
+  /* body {
     margin: 16px;
     line-height: 1.5;
     font-family: sans-serif;
@@ -144,4 +144,4 @@ select {
     padding: 4px;
     margin-right: 2px;
     margin-left: 2px;
-  }
+  } */

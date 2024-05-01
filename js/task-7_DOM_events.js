@@ -88,23 +88,33 @@
 
 
 
-// const registerForm = document.querySelector(".form");
+const registerForm = document.querySelector(".form");
 
-// registerForm.addEventListener("submit", handleSubmit);
+registerForm.addEventListener("submit", handleSubmit);
 
-// function handleSubmit(event) {
-//   event.preventDefault();
-//   const form = event.target;
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const elements = event.currentTarget.elements;
+
 //   const login = form.elements.login.value;
 //   const password = form.elements.password.value;
   
-//   if (login === "" || password === "") {
-//     return console.log("Please fill in all the fields!");
-//   }
+function foo() {
 
-//   console.log(`Login: ${login}, Password: ${password}`);
-//   form.reset();
-// }
+  const info = {
+    login: elements.login.value,
+    password: elements.password.value
+  }
+
+  if (info.login === "" || info.password === "") {
+    return console.log("Please fill in all the fields!");
+  }
+  return info;
+}
+  console.log(foo());
+  registerForm.reset();
+}
 
 
 
